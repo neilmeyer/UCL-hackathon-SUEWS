@@ -1,0 +1,22 @@
+2026-06-23 08:10:06,531 - SuPy - INFO - Loading config from yaml
+2026-06-23 08:10:06,753 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-23 08:10:11,100 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-23 08:10:16,137 - SuPy - INFO - Loading config from yaml
+2026-06-23 08:10:16,359 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-23 08:10:16,529 - SuPy - INFO - ====================
+2026-06-23 08:10:16,529 - SuPy - INFO - SUEWS version: 2026.6.5
+2026-06-23 08:10:16,529 - SuPy - INFO - Simulation period:
+2026-06-23 08:10:16,529 - SuPy - INFO -   Start: 2012-01-01 00:05:00
+2026-06-23 08:10:16,530 - SuPy - INFO -   End: 2012-01-01 04:00:00
+2026-06-23 08:10:16,530 - SuPy - INFO - 
+2026-06-23 08:10:16,530 - SuPy - INFO - No. of grids: 1
+2026-06-23 08:10:17,452 - SuPy - INFO - Simulation completed. Elapsed: 0.9s
+2026-06-23 08:10:18,094 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-23 08:10:20,301 - SuPy - INFO - ====================
+2026-06-23 08:10:20,301 - SuPy - INFO - SUEWS version: 2026.6.5
+2026-06-23 08:10:20,302 - SuPy - INFO - Simulation period:
+2026-06-23 08:10:20,302 - SuPy - INFO -   Start: 2012-01-01 00:05:00
+2026-06-23 08:10:20,302 - SuPy - INFO -   End: 2012-01-01 04:00:00
+2026-06-23 08:10:20,302 - SuPy - INFO - 
+2026-06-23 08:10:20,302 - SuPy - INFO - No. of grids: 1
+2026-06-23 08:10:20,616 - SuPy - INFO - Simulation completed. Elapsed: 0.3s
