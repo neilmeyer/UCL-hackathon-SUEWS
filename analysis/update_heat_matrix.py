@@ -7,8 +7,8 @@ names = ['Jade Gardens (Refuge)','Serendib Rise (Refuge)','Taman Melati (Refuge)
          'Kampong Lama (Hotspot)','Dhobi Lines (Hotspot)','Lusitano Square (Core)',
          'Mlima Moto (Hotspot)','Victoria Exchange (Core)','Fuzhou Lanes (Hotspot)','Zheng He Towers (Core)']
 
-dimensions = ['Peak<br>Temperature', 'Dangerous<br>Heat Hours', 'Population<br>Density',
-              'Socioeconomic<br>Vulnerability', 'Adaptive<br>Capacity', 'Overall<br>Risk']
+dimensions = ['Peak Temp', 'Danger Hours', 'Pop Density',
+              'Vulnerability', 'Adapt Capacity', 'Overall Risk']
 
 scores = np.array([
     [5, 5, 1, 2, 3, 2],
@@ -81,7 +81,7 @@ fig = go.Figure(data=go.Heatmap(
 fig.update_layout(
     title=dict(text="UDA-City Neighbourhood Heat Risk Matrix", font=dict(size=15, color="#E0E0E0"), x=0.5),
     font=dict(size=11, color="#B0BEC5"), paper_bgcolor="#0d1b2a", plot_bgcolor="#0d1b2a",
-    xaxis=dict(side="top", tickfont=dict(size=10, color="#B0BEC5")),
+    xaxis=dict(side="top", tickfont=dict(size=11, color="#B0BEC5"), tickangle=0),
     yaxis=dict(tickfont=dict(size=10, color="#B0BEC5"), autorange="reversed"),
     height=520, margin=dict(l=210, r=80, t=80, b=20))
 
