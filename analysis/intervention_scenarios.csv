@@ -1,0 +1,11 @@
+gridiv,name,type,baseline_hours,trees_hours,cool_roofs_hours,combined_hours,trees_reduction_pct,cool_roofs_reduction_pct,combined_reduction_pct
+1,Jade Gardens,Refuge,75.0,75.0,75.0,75.0,0.0,0.0,0.0
+2,Serendib Rise,Refuge,31.0,31.0,31.0,31.0,0.0,0.0,0.0
+3,Taman Melati,Refuge,62.8,62.5,62.8,62.8,0.5,0.0,0.0
+4,Kampong Lama,Hotspot,67.8,69.0,7.8,15.5,-1.8,88.5,77.1
+5,Dhobi Lines,Hotspot,44.0,47.5,4.2,5.2,-8.0,90.5,88.2
+6,Lusitano Square,Core,4.2,4.2,4.2,4.2,0.0,0.0,0.0
+7,Mlima Moto,Hotspot,5.0,15.5,0.0,0.0,-210.0,100.0,100.0
+8,Victoria Exchange,Core,2.8,2.8,2.8,2.8,0.0,0.0,0.0
+9,Fuzhou Lanes,Hotspot,36.2,42.2,3.5,4.5,-16.6,90.3,87.6
+10,Zheng He Towers,Core,0.0,0.0,0.0,0.0,0.0,0.0,0.0
