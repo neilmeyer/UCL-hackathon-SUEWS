@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UDA-City Heat Risk Diagnostic</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1b2a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2.4em; font-weight: 700; color: #fff; margin-bottom: 8px; }
+h2 { font-size: 1.5em; font-weight: 600; color: #5B9BD5; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid rgba(91,155,213,0.3); padding-bottom: 8px; }
+h3 { font-size: 1.1em; color: #B0BEC5; margin-top: 24px; margin-bottom: 8px; }
+p { margin-bottom: 16px; color: #B0BEC5; }
+.hero { text-align: center; padding: 60px 0 40px; }
+.hero h1 { font-size: 2.8em; }
+.hero .subtitle { font-size: 1.2em; color: #78909C; margin-top: 12px; font-style: italic; }
+.stat-row { display: flex; gap: 24px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+.stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(91,155,213,0.2); border-radius: 12px; padding: 24px 32px; text-align: center; min-width: 160px; }
+.stat-card .number { font-size: 2.2em; font-weight: 700; color: #fff; }
+.stat-card .label { font-size: 0.85em; color: #78909C; margin-top: 4px; }
+.stat-card.red { border-color: rgba(211,47,47,0.5); }
+.stat-card.red .number { color: #EF5350; }
+.stat-card.amber { border-color: rgba(255,143,0,0.5); }
+.stat-card.amber .number { color: #FF8F00; }
+.finding { background: rgba(211,47,47,0.08); border-left: 4px solid #D32F2F; padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+.finding p { color: #e0e0e0; margin: 0; }
+.finding strong { color: #EF5350; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; }
+th { background: rgba(91,155,213,0.15); color: #5B9BD5; padding: 12px 10px; text-align: left; font-weight: 600; }
+td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.ragg-red { color: #EF5350; font-weight: 700; }
+.ragg-amber { color: #FF8F00; font-weight: 700; }
+.ragg-green { color: #66BB6A; font-weight: 700; }
+.ragg-grey { color: #9E9E9E; }
+.chart-frame { margin: 32px 0; border-radius: 8px; overflow: hidden; border: 1px solid rgba(91,155,213,0.15); }
+.chart-frame iframe { display: block; width: 100%; border: none; }
+blockquote { border-left: 3px solid #5B9BD5; padding: 12px 20px; margin: 20px 0; background: rgba(91,155,213,0.05); border-radius: 0 8px 8px 0; }
+blockquote p { color: #B0BEC5; margin: 0; font-style: italic; }
+.caveats { background: rgba(255,143,0,0.05); border: 1px solid rgba(255,143,0,0.2); border-radius: 8px; padding: 24px; margin: 24px 0; }
+.caveats ul { padding-left: 20px; }
+.caveats li { margin-bottom: 8px; color: #B0BEC5; }
+.citation { font-size: 0.85em; color: #78909C; margin-bottom: 8px; }
+.footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); color: #546E7A; font-size: 0.85em; font-style: italic; }
+code { background: rgba(91,155,213,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #5B9BD5; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>UDA-City Heat Risk Diagnostic</h1>
+<p class="subtitle">Where is heat most dangerous to people — and is that the same as where it is simply hottest?</p>
+</div>
+
+<div class="stat-row">
+<div class="stat-card red"><div class="number">2</div><div class="label">Neighbourhoods at Red risk</div></div>
+<div class="stat-card amber"><div class="number">507</div><div class="label">Dangerous hours under +2.5°C<br>(Kampong Lama)</div></div>
+<div class="stat-card"><div class="number">10</div><div class="label">Neighbourhoods modelled</div></div>
+<div class="stat-card"><div class="number">7×</div><div class="label">Increase in dangerous hours<br>under warming</div></div>
+</div>
+
+<div class="finding">
+<p><strong>The hottest neighbourhood is not the highest-risk one.</strong> Jade Gardens peaks at 38.1°C but ranks 7th on risk. Dhobi Lines peaks lower (36.9°C) but ranks 1st — because 300 people/ha live there with 10% AC access and 60% outdoor workers.</p>
+</div>
+
+<h2>Heat Hazard: What SUEWS Shows</h2>
+<p>SUEWS v2026.6.5 was run on all 10 neighbourhoods of UDA-city under shared hot-humid forcing (ERA5 2024, April–May window). Hazard metric: hours where modelled 2m air temperature exceeds 35°C.</p>
+
+<table>
+<thead><tr><th>Neighbourhood</th><th>Type</th><th>Peak T2</th><th>Hours Now</th><th>Hours +2.5°C</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td>Jade Gardens</td><td>Refuge</td><td>38.1°C</td><td>75</td><td>513</td><td>+438</td></tr>
+<tr><td>Kampong Lama</td><td>Hotspot</td><td>37.4°C</td><td>68</td><td>507</td><td>+439</td></tr>
+<tr><td>Taman Melati</td><td>Refuge</td><td>37.7°C</td><td>63</td><td>467</td><td>+404</td></tr>
+<tr><td>Dhobi Lines</td><td>Hotspot</td><td>36.9°C</td><td>44</td><td>424</td><td>+380</td></tr>
+<tr><td>Fuzhou Lanes</td><td>Hotspot</td><td>36.7°C</td><td>36</td><td>395</td><td>+359</td></tr>
+<tr><td>Serendib Rise</td><td>Refuge</td><td>36.8°C</td><td>31</td><td>374</td><td>+343</td></tr>
+<tr><td>Mlima Moto</td><td>Hotspot</td><td>35.6°C</td><td>5</td><td>277</td><td>+272</td></tr>
+<tr><td>Lusitano Square</td><td>Core</td><td>35.3°C</td><td>4</td><td>237</td><td>+233</td></tr>
+<tr><td>Victoria Exchange</td><td>Core</td><td>35.1°C</td><td>3</td><td>218</td><td>+215</td></tr>
+<tr><td>Zheng He Towers</td><td>Core</td><td>34.4°C</td><td>0</td><td>132</td><td>+132</td></tr>
+</tbody>
+</table>
+
+<p>The "refuge" neighbourhoods are paradoxically the <strong>hottest</strong> — their low building density means weak turbulent mixing, so near-surface air warms more under strong radiation. The dense high-rise cores are coolest: tall buildings create roughness that drives convective cooling.</p>
+
+<div class="chart-frame"><iframe src="scenario_comparison.html" height="480"></iframe></div>
+
+<h2>From Hazard to Risk: The Bridge</h2>
+<p>Following the UNDRR framing: <code>Risk = f(Hazard × Exposure × Vulnerability)</code></p>
+
+<table>
+<thead><tr><th>Neighbourhood</th><th>Type</th><th>Hazard</th><th>Exposure</th><th>Vulnerability</th><th>Risk</th><th>Rating</th></tr></thead>
+<tbody>
+<tr><td><strong>Dhobi Lines</strong></td><td>Hotspot</td><td>0.59</td><td>1.00</td><td>0.92</td><td>1.00</td><td class="ragg-red">🔴 Red</td></tr>
+<tr><td><strong>Fuzhou Lanes</strong></td><td>Hotspot</td><td>0.48</td><td>1.00</td><td>0.97</td><td>0.96</td><td class="ragg-red">🔴 Red</td></tr>
+<tr><td>Serendib Rise</td><td>Refuge</td><td>0.41</td><td>0.77</td><td>0.27</td><td>0.53</td><td class="ragg-amber">🟠 Amber</td></tr>
+<tr><td>Mlima Moto</td><td>Hotspot</td><td>0.07</td><td>1.00</td><td>1.00</td><td>0.49</td><td class="ragg-amber">🟠 Amber</td></tr>
+<tr><td>Lusitano Square</td><td>Core</td><td>0.06</td><td>0.77</td><td>0.09</td><td>0.17</td><td class="ragg-green">🟢 Green</td></tr>
+<tr><td>Jade Gardens</td><td>Refuge</td><td>1.00</td><td>0.00</td><td>0.32</td><td>0.14</td><td class="ragg-green">🟢 Green</td></tr>
+<tr><td>Zheng He Towers</td><td>Core</td><td>0.00</td><td>0.77</td><td>0.00</td><td>0.00</td><td class="ragg-grey">⬜ Grey</td></tr>
+</tbody>
+</table>
+
+<div class="chart-frame"><iframe src="heat_matrix.html" height="500"></iframe></div>
+
+<h2>The CrunchTest: +2.5°C</h2>
+<p>Under warming, dangerous-heat hours increase 5–7× everywhere. The critical trajectory signal: <strong>Mlima Moto moves from Amber to Red</strong> — the only neighbourhood that changes RAGG band. Under +2.5°C, Kampong Lama spends 35% of April–May above 35°C for a population with 8% AC access.</p>
+
+<div class="chart-frame"><iframe src="sankey_heat_risk.html" height="550"></iframe></div>
+
+<h2>Where the Bridge Holds</h2>
+<ul style="padding-left: 20px; margin-bottom: 16px;">
+<li>SUEWS correctly differentiates neighbourhoods by land cover and building roughness</li>
+<li>The ranking is robust to threshold choice (33°C, 35°C, or 37°C)</li>
+<li>The UNDRR decomposition reveals that temperature maps alone are insufficient for risk governance</li>
+</ul>
+
+<h2>Where the Bridge Breaks</h2>
+<div class="caveats">
+<ul>
+<li><strong>T2 is outdoor air, not lived experience.</strong> Indoor heat in metal-roofed informal housing is far higher than outdoor T2.</li>
+<li><strong>35°C dry-bulb in 81% RH understates danger.</strong> A wet-bulb metric would be more physiologically relevant.</li>
+<li><strong>Neighbourhood aggregation hides individuals.</strong> A mean vulnerability of 0.82 masks the most exposed people within.</li>
+<li><strong>The future scenario is a stress test, not a projection.</strong> +2.5°C uniformly is not how climate change works. Treat direction, not absolutes.</li>
+<li><strong>Anthropogenic heat is off.</strong> AC waste heat would feed back into outdoor temperatures — a vicious cycle not captured.</li>
+<li><strong>Socioeconomic data is synthetic.</strong> Treat ranks, not absolute values, as meaningful.</li>
+</ul>
+</div>
+
+<blockquote><p>This assessment is an indicative, model-based estimate of heat risk — not a measurement or forecast. It is a compass, not a certification.</p></blockquote>
+
+<h2>Citations</h2>
+<p class="citation">Järvi, L., Grimmond, C.S.B. & Christen, A. (2011). The Surface Urban Energy and Water Balance Scheme (SUEWS): Evaluation in Los Angeles and Vancouver. <em>J. Hydrol.</em>, 411(3–4), 219–237. <a href="https://doi.org/10.1016/j.jhydrol.2011.10.001" style="color:#5B9BD5;">DOI</a></p>
+<p class="citation">Ward, H.C., Kotthaus, S., Järvi, L. & Grimmond, C.S.B. (2016). SUEWS: Development and evaluation at two UK sites. <em>Urban Climate</em>, 18, 1–32. <a href="https://doi.org/10.1016/j.uclim.2016.05.001" style="color:#5B9BD5;">DOI</a></p>
+<p class="citation">UNDRR (2025). Extreme Heat Risk Governance Framework and Toolkit. United Nations Office for Disaster Risk Reduction.</p>
+
+<div class="footer">
+<p>SUEWS Community Hackathon · 24 June 2026 · UCL East<br>
+Model: SUEWS v2026.6.5 via SuPy · AI: Kiro (Claude) · Risk framework: UNDRR<br>
+Repo: <a href="https://github.com/neilmeyer/UCL-hackathon-SUEWS" style="color:#5B9BD5;">github.com/neilmeyer/UCL-hackathon-SUEWS</a></p>
+</div>
+
+</div>
+</body>
+</html>
