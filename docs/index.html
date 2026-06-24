@@ -88,6 +88,21 @@ code { background: rgba(91,155,213,0.1); padding: 2px 6px; border-radius: 4px; f
 
 <div class="chart-frame"><iframe src="scenario_comparison.html" height="480"></iframe></div>
 
+<h2>Why the Refuges Are Hottest: The Model Physics</h2>
+<p>This result is counter-intuitive — greener, lower-density neighbourhoods should be cooler. But SUEWS reveals the mechanism:</p>
+
+<h3>Low roughness traps heat near the surface</h3>
+<p>Jade Gardens has λ<sub>p</sub> = 0.047 and mean building height 5.2m. The Macdonald parameterisation translates this into a small aerodynamic roughness length (z<sub>0</sub>). Weak z<sub>0</sub> means weak turbulent mixing — sensible heat flux (Q<sub>H</sub>) cannot efficiently transport heat away from the surface into the boundary layer. The heat stays where people breathe.</p>
+
+<h3>Paved surfaces dominate storage heat</h3>
+<p>At 59% paved fraction, OHM (Objective Hysteresis Model) storage heat flux is large. Impervious surfaces absorb shortwave radiation during the day and re-radiate longwave at night — suppressing nocturnal cooling. The OHM coefficients for paved surfaces (a1=0.72, a2=0.30) give a strong hysteresis.</p>
+
+<h3>Tall buildings ventilate the cores</h3>
+<p>Zheng He Towers (FAI = 0.39, height 25.5m) and Mlima Moto (FAI = 0.90, height 10.2m) generate large z<sub>0</sub> — enhancing turbulent transport. Tall canyon geometry also provides self-shading, reducing the net radiation load at street level. The building fraction (34–44%) displaces paved area that would otherwise dominate OHM storage.</p>
+
+<h3>What this means for policy</h3>
+<p>Urban cooling interventions should not target temperature alone. The refuges are hot but sparsely populated. The dense informal hotspots are moderately hot <em>and</em> packed with vulnerable people who cannot escape the heat. Roughness-enhancing interventions (street trees at scale, vertical structures) would improve ventilation in the low-rise hotspots where it matters most.</p>
+
 <h2>From Hazard to Risk: The Bridge</h2>
 <p>Following the UNDRR framing: <code>Risk = f(Hazard × Exposure × Vulnerability)</code></p>
 
@@ -131,6 +146,19 @@ code { background: rgba(91,155,213,0.1); padding: 2px 6px; border-radius: 4px; f
 </div>
 
 <blockquote><p>This assessment is an indicative, model-based estimate of heat risk — not a measurement or forecast. It is a compass, not a certification.</p></blockquote>
+
+<h2>What We Would Change</h2>
+<p>Given more time or a real-world application, these model improvements would strengthen the assessment:</p>
+<table>
+<thead><tr><th>Enhancement</th><th>Why It Matters</th><th>SUEWS Support</th></tr></thead>
+<tbody>
+<tr><td><strong>Enable QF (anthropogenic heat)</strong></td><td>AC waste heat creates a feedback loop: hotter → more AC → more outdoor heat. As warming drives AC adoption in hotspot neighbourhoods, this becomes significant.</td><td>Emissions method available; off by design for comparability</td></tr>
+<tr><td><strong>SPARTACUS radiation</strong></td><td>Multi-layer scheme handles canyon reflections, sky-view factor, wall interactions. Would better differentiate dense low-rise from dense high-rise.</td><td>Built into SUEWS; not enabled in this config</td></tr>
+<tr><td><strong>Humid-heat metric (WBGT)</strong></td><td>At 81% RH, 35°C dry-bulb is far more dangerous than in a dry climate. A wet-bulb globe temperature would be more physiologically relevant.</td><td>Could be post-processed from T2 + forcing RH + radiation</td></tr>
+<tr><td><strong>Dynamic OHM</strong></td><td>Classic OHM uses fixed coefficients. Dynamic OHM adapts to surface moisture — important in a humid city with frequent rainfall.</td><td>Available as physics option</td></tr>
+<tr><td><strong>Deciduous trees</strong></td><td>Current config has 0% deciduous everywhere. Tropical semi-deciduous trees lose LAI in dry/hot season → reduced cooling when most needed.</td><td>Supported; would need phenology calibration</td></tr>
+</tbody>
+</table>
 
 <h2>Citations</h2>
 <p class="citation">Järvi, L., Grimmond, C.S.B. & Christen, A. (2011). The Surface Urban Energy and Water Balance Scheme (SUEWS): Evaluation in Los Angeles and Vancouver. <em>J. Hydrol.</em>, 411(3–4), 219–237. <a href="https://doi.org/10.1016/j.jhydrol.2011.10.001" style="color:#5B9BD5;">DOI</a></p>
