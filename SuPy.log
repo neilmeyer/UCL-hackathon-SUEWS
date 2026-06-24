@@ -20,3 +20,19 @@
 2026-06-23 08:10:20,302 - SuPy - INFO - 
 2026-06-23 08:10:20,302 - SuPy - INFO - No. of grids: 1
 2026-06-23 08:10:20,616 - SuPy - INFO - Simulation completed. Elapsed: 0.3s
+2026-06-24 14:24:38,050 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-24 14:24:53,884 - SuPy - INFO - SuPy is validating `df_forcing`...
+2026-06-24 14:24:53,897 - SuPy - INFO - All checks for `df_forcing` passed!
+2026-06-24 14:24:54,026 - SuPy - INFO - Running 10 grids in parallel (Rust/Rayon)
+2026-06-24 14:25:51,157 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-24 14:26:04,399 - SuPy - INFO - SuPy is validating `df_forcing`...
+2026-06-24 14:26:04,413 - SuPy - INFO - All checks for `df_forcing` passed!
+2026-06-24 14:26:04,552 - SuPy - INFO - Running 10 grids in parallel (Rust/Rayon)
+2026-06-24 14:27:02,870 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-24 14:27:16,168 - SuPy - INFO - SuPy is validating `df_forcing`...
+2026-06-24 14:27:16,176 - SuPy - INFO - All checks for `df_forcing` passed!
+2026-06-24 14:27:16,310 - SuPy - INFO - Running 10 grids in parallel (Rust/Rayon)
+2026-06-24 14:28:28,308 - SuPy - INFO - Loading config with schema version: 2026.5
+2026-06-24 14:28:41,633 - SuPy - INFO - SuPy is validating `df_forcing`...
+2026-06-24 14:28:41,641 - SuPy - INFO - All checks for `df_forcing` passed!
+2026-06-24 14:28:41,771 - SuPy - INFO - Running 10 grids in parallel (Rust/Rayon)
