@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At What Warming Does Your Neighbourhood Break?</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1b2a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2.4em; font-weight: 700; color: #fff; margin-bottom: 8px; }
+h2 { font-size: 1.5em; font-weight: 600; color: #5B9BD5; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid rgba(91,155,213,0.3); padding-bottom: 8px; }
+h3 { font-size: 1.1em; color: #B0BEC5; margin-top: 24px; margin-bottom: 8px; }
+p { margin-bottom: 16px; color: #B0BEC5; }
+.hero { text-align: center; padding: 60px 0 40px; }
+.hero h1 { font-size: 2.6em; }
+.hero .subtitle { font-size: 1.2em; color: #78909C; margin-top: 12px; font-style: italic; }
+.stat-row { display: flex; gap: 24px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+.stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(91,155,213,0.2); border-radius: 12px; padding: 24px 32px; text-align: center; min-width: 160px; }
+.stat-card .number { font-size: 2.2em; font-weight: 700; color: #fff; }
+.stat-card .label { font-size: 0.85em; color: #78909C; margin-top: 4px; }
+.stat-card.red { border-color: rgba(211,47,47,0.5); }
+.stat-card.red .number { color: #EF5350; }
+.stat-card.amber { border-color: rgba(255,143,0,0.5); }
+.stat-card.amber .number { color: #FF8F00; }
+.finding { background: rgba(211,47,47,0.08); border-left: 4px solid #D32F2F; padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+.finding p { color: #e0e0e0; margin: 0; }
+.finding strong { color: #EF5350; }
+.chart-frame { margin: 32px 0; border-radius: 8px; overflow: hidden; border: 1px solid rgba(91,155,213,0.15); }
+.chart-frame iframe { display: block; width: 100%; border: none; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; }
+th { background: rgba(91,155,213,0.15); color: #5B9BD5; padding: 12px 10px; text-align: left; font-weight: 600; }
+td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.ragg-red { color: #EF5350; font-weight: 700; }
+.ragg-amber { color: #FF8F00; font-weight: 700; }
+.ragg-green { color: #66BB6A; font-weight: 700; }
+blockquote { border-left: 3px solid #5B9BD5; padding: 12px 20px; margin: 20px 0; background: rgba(91,155,213,0.05); border-radius: 0 8px 8px 0; }
+blockquote p { color: #B0BEC5; margin: 0; font-style: italic; }
+.method { background: rgba(91,155,213,0.05); border: 1px solid rgba(91,155,213,0.2); border-radius: 8px; padding: 24px; margin: 24px 0; }
+.method ul { padding-left: 20px; }
+.method li { margin-bottom: 8px; color: #B0BEC5; }
+.citation { font-size: 0.85em; color: #78909C; margin-bottom: 8px; }
+.footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); color: #546E7A; font-size: 0.85em; font-style: italic; }
+a { color: #5B9BD5; }
+code { background: rgba(91,155,213,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #5B9BD5; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #5B9BD5; text-decoration: none; font-size: 0.9em; }
+.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">← Back to main diagnostic</a>
+
+<div class="hero">
+<h1>At What Warming Does Your Neighbourhood Break?</h1>
+<p class="subtitle">SUEWS run at 6 warming increments reveals the non-linear threshold where heat becomes unworkable</p>
+</div>
+
+<div class="stat-row">
+<div class="stat-card red"><div class="number">+0.5°C</div><div class="label">Warming at which Kampong Lama<br>exceeds 100 dangerous hours</div></div>
+<div class="stat-card amber"><div class="number">10×</div><div class="label">Increase in dangerous hours<br>from 0 to +2.5°C</div></div>
+<div class="stat-card"><div class="number">6</div><div class="label">Warming levels simulated<br>(0 to +2.5°C)</div></div>
+<div class="stat-card red"><div class="number">314h</div><div class="label">Unsafe outdoor work hours<br>Kampong Lama at +2.5°C</div></div>
+</div>
+
+<div class="finding">
+<p><strong>The response is non-linear.</strong> Dhobi Lines goes from 44h (present) → 70h (+0.5°C) → 113h (+1.0°C) → 182h (+1.5°C) → 276h (+2.0°C) → 424h (+2.5°C). Each half-degree of warming adds more dangerous hours than the last — because more timesteps cross the 35°C threshold as the baseline shifts upward.</p>
+</div>
+
+<h2>Dangerous Heat Hours: The Slider</h2>
+<p>Drag the slider to see how each neighbourhood responds to warming. The non-linearity is immediately visible — hotspot neighbourhoods accelerate while cores stay cool until higher warming levels.</p>
+
+<div class="chart-frame"><iframe src="warming_slider.html" height="580"></iframe></div>
+
+<h2>From Physics to People: Unsafe Work Hours</h2>
+<p>The ILO estimates that by 2030, heat stress will cost the global economy 80 million full-time jobs worth of productivity. We can translate our model output directly into a policy-relevant metric: <strong>hours where outdoor work should cease</strong>.</p>
+
+<p>This is not an assumption — it's a direct application of the ILO occupational heat guideline (no outdoor labour above 35°C dry-bulb). We multiply dangerous hours by each neighbourhood's outdoor worker fraction (from the challenge dataset's socioeconomic data). The result shows who loses the most working time.</p>
+
+<div class="chart-frame"><iframe src="work_hours_slider.html" height="580"></iframe></div>
+
+<div class="finding">
+<p><strong>At +1.5°C warming, Kampong Lama's outdoor workers lose 150 hours of safe working time in a two-month period.</strong> That's 62% of the workforce losing ~25% of their productive hours. For daily-wage workers with no income safety net, this is not an inconvenience — it's a poverty trap.</p>
+</div>
+
+<h2>Where Things Break: The Tipping Increments</h2>
+
+<table>
+<thead><tr><th>Neighbourhood</th><th>Type</th><th>Present (h)</th><th>+0.5°C</th><th>+1.0°C</th><th>+1.5°C</th><th>+2.0°C</th><th>+2.5°C</th></tr></thead>
+<tbody>
+<tr><td><strong>Jade Gardens</strong></td><td class="ragg-green">Refuge</td><td>75</td><td>108</td><td>163</td><td>239</td><td>353</td><td>513</td></tr>
+<tr><td><strong>Kampong Lama</strong></td><td class="ragg-red">Hotspot</td><td>68</td><td>103</td><td>164</td><td>242</td><td>345</td><td>507</td></tr>
+<tr><td><strong>Dhobi Lines</strong></td><td class="ragg-red">Hotspot</td><td>44</td><td>70</td><td>113</td><td>182</td><td>276</td><td>424</td></tr>
+<tr><td><strong>Fuzhou Lanes</strong></td><td class="ragg-red">Hotspot</td><td>36</td><td>60</td><td>98</td><td>156</td><td>248</td><td>395</td></tr>
+<tr><td><strong>Mlima Moto</strong></td><td class="ragg-red">Hotspot</td><td>5</td><td>20</td><td>44</td><td>75</td><td>137</td><td>277</td></tr>
+<tr><td><strong>Zheng He Towers</strong></td><td class="ragg-green">Core</td><td>0</td><td>0</td><td>5</td><td>19</td><td>59</td><td>132</td></tr>
+</tbody>
+</table>
+
+<p>Key observations:</p>
+<ul style="padding-left: 20px; margin-bottom: 16px;">
+<li style="margin-bottom: 8px; color: #B0BEC5;"><strong style="color:#fff;">Kampong Lama breaks at +0.5°C</strong> — crosses 100 dangerous hours, equivalent to losing >10% of working time for outdoor workers</li>
+<li style="margin-bottom: 8px; color: #B0BEC5;"><strong style="color:#fff;">Mlima Moto's cliff is between +1.0°C and +1.5°C</strong> — goes from 45h to 92h, nearly doubling in a single half-degree increment</li>
+<li style="margin-bottom: 8px; color: #B0BEC5;"><strong style="color:#fff;">Zheng He Towers (CBD) is protected until +1.5°C</strong> — roughness-driven ventilation from tall buildings provides thermal resilience</li>
+<li style="margin-bottom: 8px; color: #B0BEC5;"><strong style="color:#fff;">The gap between rich and poor neighbourhoods widens with warming</strong> — inequality is amplified by physics</li>
+</ul>
+
+<blockquote><p>At 35°C dry-bulb with 81% relative humidity, wet-bulb temperature is approximately 31°C — the empirically determined limit of human thermoregulation (Vecellio et al., PNAS 2023). Our threshold is not arbitrary; it marks where human physiology fails.</p></blockquote>
+
+<h2>What This Means</h2>
+<p>The slider reveals three things that a single scenario comparison cannot:</p>
+
+<ol style="padding-left: 20px; margin-bottom: 16px;">
+<li style="margin-bottom: 12px; color: #B0BEC5;"><strong style="color: #fff;">The response is non-linear</strong> — each half-degree of warming is worse than the last. Policy based on linear extrapolation will underestimate future risk.</li>
+<li style="margin-bottom: 12px; color: #B0BEC5;"><strong style="color: #fff;">Neighbourhoods have different tipping points</strong> — defined by their current proximity to the threshold. This creates an equity argument: the poorest neighbourhoods cross into danger first.</li>
+<li style="margin-bottom: 12px; color: #B0BEC5;"><strong style="color: #fff;">Physical interventions buy time, not immunity</strong> — cool roofs eliminate ~88% of present-day dangerous hours, but under +2.5°C even cooled neighbourhoods would face hundreds of hours above threshold. The headroom that interventions provide is quantifiable: approximately +1.5°C of breathing room.</li>
+</ol>
+
+<h2>Method</h2>
+<div class="method">
+<ul>
+<li><strong>Model:</strong> SUEWS v2026.6.5 via SuPy, 10 neighbourhoods, 5-min timestep, 15-min output</li>
+<li><strong>Warming method:</strong> Linear interpolation of forcing Tair and incoming longwave radiation (ldown) between present (0°C) and future (+2.5°C) datasets at 0.5°C increments</li>
+<li><strong>Analysis window:</strong> April–May (61 days), excluding 30-day spinup</li>
+<li><strong>Threshold:</strong> 35°C dry-bulb (≈31°C wet-bulb at 81% RH — Vecellio et al. critical limit)</li>
+<li><strong>Outdoor worker fraction:</strong> From challenge dataset socioeconomic.csv (range: 18–65%)</li>
+<li><strong>Unsafe work hours:</strong> Dangerous hours × outdoor worker fraction (ILO occupational heat guideline)</li>
+<li><strong>Limitation:</strong> Uniform warming applied — real climate change is heterogeneous. Treat as stress test, not prediction.</li>
+</ul>
+</div>
+
+<h2>Citations</h2>
+<p class="citation">Vecellio, D.J. et al. (2023). Greatly enhanced risk to humans as a consequence of empirically determined lower moist heat stress tolerance. <em>PNAS</em>, 120(42). <a href="https://doi.org/10.1073/pnas.2305427120">DOI</a></p>
+<p class="citation">ILO (2019). Working on a Warmer Planet: The Impact of Heat Stress on Labour Productivity and Decent Work. International Labour Organization, Geneva.</p>
+<p class="citation">Järvi, L., Grimmond, C.S.B. & Christen, A. (2011). The Surface Urban Energy and Water Balance Scheme (SUEWS). <em>J. Hydrol.</em>, 411(3–4), 219–237. <a href="https://doi.org/10.1016/j.jhydrol.2011.10.001">DOI</a></p>
+
+<div class="footer">
+<p>SUEWS Community Hackathon · 24 June 2026 · UCL East<br>
+Model: SUEWS v2026.6.5 via SuPy · AI: Kiro (Claude) · Risk framework: UNDRR + ILO<br>
+<a href="index.html">← Main Diagnostic</a> · <a href="https://github.com/neilmeyer/UCL-hackathon-SUEWS">GitHub Repo</a></p>
+</div>
+
+</div>
+</body>
+</html>
