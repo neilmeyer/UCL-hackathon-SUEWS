@@ -1,11 +1,21 @@
 # City dataset
 
-The complete dataset for the focus city is loaded here at **kickoff on 24 June**:
+The focus city is **UDA-city** — a synthetic, lower-income, hot-humid city with 10 named neighbourhoods.
 
-- land cover types and fractions
-- building form and tree heights
-- population
-- anthropogenic heat
-- a hot-season forcing, and a hotter-future variant (+2–3 °C / amplified heatwave)
+Loaded from [UMEP-dev/uda-city-hackathon](https://github.com/UMEP-dev/uda-city-hackathon) into `data/uda-city-hackathon/`.
 
-Until then this folder is intentionally empty. The suews-agent comes preconfigured with the shared dataset, so every submission is directly comparable.
+## Load it
+
+Tell your AI agent:
+
+> Add the challenge city from https://github.com/UMEP-dev/uda-city-hackathon into my data/ folder, then load it and confirm it runs.
+
+Or: `gh repo clone UMEP-dev/uda-city-hackathon` and point the agent at `agent_manifest.yml`.
+
+## Key facts
+
+- Location: 6.93°N, 79.86°E (coastal tropical, Colombo-like)
+- 10 neighbourhoods: 3 refuge, 4 hotspot, 3 core
+- Forcing: present hot-humid + future +2.5°C
+- QF is OFF — population is exposure data, not model heat
+- Risk bridge: `risk_bridge.py` (geometric mean of hazard × exposure × vulnerability)
